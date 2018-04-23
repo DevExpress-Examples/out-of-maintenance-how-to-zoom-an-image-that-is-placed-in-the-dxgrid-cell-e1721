@@ -1,0 +1,31 @@
+﻿<Window x:Class="WpfApplication1.Window1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:local="clr-namespace:WpfApplication1" Title="Window1" Height="598" Width="811" xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid">
+    <Grid>
+        <dxg:GridControl Name="gridControl1">
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="CategoryID" />
+                <dxg:GridColumn FieldName="CategoryName" />
+                    <dxg:GridColumn FieldName="Picture" AllowColumnFiltering="False">
+                        <dxg:GridColumn.CellTemplate>
+                            <DataTemplate>
+                            <Button Command="{x:Static local:Window1.ShowImage}">
+                                <Button.Template>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <ContentPresenter />
+                                    </ControlTemplate>
+                                </Button.Template>
+                            <Image Source="{Binding Path=Value}" HorizontalAlignment="Left" Stretch="None" />                          
+                            </Button>
+                            </DataTemplate>
+                        </dxg:GridColumn.CellTemplate>
+                    </dxg:GridColumn>
+  
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.View>
+                <dxg:TableView x:Name="view" AutoWidth="True" />
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+
+        <Image Source="{Binding}" Name="image" Visibility="Hidden" MouseLeave="image_MouseLeave" Margin="30,30,50,12" />
+    </Grid>
+    
+</Window>
