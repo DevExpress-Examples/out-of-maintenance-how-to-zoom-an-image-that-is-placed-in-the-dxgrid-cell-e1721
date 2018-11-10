@@ -1,4 +1,4 @@
-﻿<Window Height="598" 
+<Window Height="598" 
 		Title="Window1" 
 		Width="811" 
 		x:Class="WpfApplication1.Window1" 
